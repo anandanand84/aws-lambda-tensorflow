@@ -11,7 +11,6 @@ const lambda_params  = {
     Description: 'My tensorflow lambda function that adds two numbers', //Description for your lambda function
     Handler: 'main.handler', //Assuming you will provide main.py file with a function called handler.
     MemorySize: 128,
-    Role: 'STRING_VALUE',
     Runtime: 'python2.7',
     Timeout: 10
 };
