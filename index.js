@@ -6,5 +6,6 @@ const dependencyDirectory = path.resolve(__dirname,'dependencies');
 
 module.exports =  function () {
     var pass = through.obj();
-    return es.duplex(pass, es.merge(vinyl.src.apply(vinyl.src, [dependencyDirectory+'\\*']), pass));
+    //console.log('Using dependency path',dependencyDirectory+path.sep+'**/*')
+    return es.duplex(pass, es.merge(vinyl.src.apply(vinyl.src, [dependencyDirectory+path.sep+'**'+path.sep+'*']), pass));
 };

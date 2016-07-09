@@ -28,6 +28,7 @@ const lambda_params  = {
     Handler: 'main.handler', //Assuming you will provide main.py file with a function called handler.
     MemorySize: 128,
     Runtime: 'python2.7',
+    Role : 'ROLE_STRING',//eg:'arn:aws:iam::[Account]:role/lambda_basic_execution'
     Timeout: 10
 };
 
@@ -35,7 +36,7 @@ gulp.task('default', () => {
     return gulp.src(['main.py'])
                 .pipe(aws_lamda_tensorflow()) //Adds all the required files needed to run tensor flow in aws lambda
                 .pipe(zip('archive.zip'))
-                .pipe(lambda(lambda_params, opts))
+                .pipe(lambda(lambda_params, {}))
                 .pipe(gulp.dest('dist'));
 });
 
