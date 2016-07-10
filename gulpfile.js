@@ -18,10 +18,14 @@ const lambda_params  = {
     Timeout: 10
 };
 
+var opts = {
+    region : 'us-west-2'
+}
+
 gulp.task('default', () => {
     return gulp.src(['main.py'])
                 .pipe(aws_lamda_tensorflow()) //Adds all the required files needed to run tensor flow in aws lambda
                 .pipe(zip('archive.zip'))
-                .pipe(lambda(lambda_params, {}))
+                .pipe(lambda(lambda_params, opts))
                 .pipe(gulp.dest('dist'));
 });
