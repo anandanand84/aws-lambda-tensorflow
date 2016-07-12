@@ -1,6 +1,6 @@
 {
   "name": "aws-lambda-tensorflow",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "description": "A gulp plugin to deploy python tensorflow in aws lambda.",
   "main": "index.js",
   "scripts": {
