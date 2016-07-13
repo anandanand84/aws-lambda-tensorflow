@@ -40,7 +40,7 @@ var opts = {
 
 gulp.task('default', () => {
     return gulp.src(['simple_add.py'])
-                .pipe(aws_lamda_tensorflow({ region : 'ap-southeast-2', usePluginDependency  : true })) //Adds all the required files needed to run tensor flow in aws lambda
+                .pipe(aws_lamda_tensorflow({ region : 'ap-southeast-2' })) //Adds all the required files needed to run tensor flow in aws lambda
                 .pipe(zip('archive.zip'))
                 .pipe(lambda(lambda_params, opts))
                 .pipe(gulp.dest('dist'));
@@ -61,25 +61,14 @@ Six lambda available regions.
 Type: `string`<br>
 values: `ap-northeast-1, ap-southeast-2, eu-central-1, eu-west-1, us-east-1, us-west-2`
 
-##### usePluginDependency (either one of usePluginDependency, virtualEnvPath, dependencies is required)
+##### version (optional)
 
-Use pre built dependencies generated on specific region. This is the preferred method.
+Use the specified version of tensorflow.
 
-Type: `boolean`<br>
-Default: `false`
-
-##### virtualEnvPath (either one of usePluginDependency, virtualEnvPath, dependencies is required)
-
-If virtualEnv is used during development, provide path of the directory. Adding virtual evn libraries from local machine will cause it to compile with incorrect architecture since Aws lambda may use a different architecture than local machine. If you have correct architecutre prefer dependency path options than virtualEnv
+Check this [repository](https://github.com/anandanand84/aws-lambda-tensorflow-dependencies) for the available versions 
 
 Type: `string`<br>
-Example: `~/tensorflow`
-
-##### dependencies (either one of usePluginDependency, virtualEnvPath, dependencies is required)
-
-List of globbing patterns similar to gulp.src to add additional dependencies.
-
-Type: `Array`<br>
+Default: `LATEST`
 
 
 ## Sample Project

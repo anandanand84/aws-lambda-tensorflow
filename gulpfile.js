@@ -1,4 +1,5 @@
 'use strict';
+//This is a sample gulp file that can be used.
 //npm install --save gulp gulp-zip gulp-awslambda
 const gulp   = require('gulp');
 const zip    = require('gulp-zip');
@@ -22,7 +23,7 @@ var opts = {
 
 gulp.task('default', () => {
     return gulp.src(['simple_add.py'])
-        .pipe(aws_lamda_tensorflow({ region : 'ap-southeast-2', usePluginDependency  : true })) //Adds all the required files needed to run tensor flow in aws lambda
+        .pipe(aws_lamda_tensorflow({ region : 'ap-southeast-2' })) //Adds all the required files needed to run tensor flow in aws lambda
         .pipe(zip('archive.zip'))
         .pipe(lambda(lambda_params, opts))
         .pipe(gulp.dest('dist'));
