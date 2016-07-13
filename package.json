@@ -18,6 +18,14 @@
     "plugin",
     "tensorflow"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anandanand84/aws-lambda-tensorflow.git"
+  },
+  "bugs": {
+    "url": "https://github.com/anandanand84/aws-lambda-tensorflow/issues"
+  },
+  "homepage": "https://github.com/anandanand84/aws-lambda-tensorflow#readme",
   "author": "anandanand84",
   "license": "ISC",
   "dependencies": {
